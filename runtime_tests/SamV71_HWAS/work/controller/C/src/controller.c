@@ -531,6 +531,7 @@ static inline void Init_read_modify_write_failure_test()
     Spi_enable_tx_interrupt();
 }
 
+/// This function tests the fulfillment of the requirement ETB_FUN-5030
 static inline void Test_read_modify_write_failure()
 {
     const asn1SccSourceAddress testDataAddress = (const asn1SccSourceAddress)&testData;

@@ -1,0 +1,34 @@
+# Ignore whole work directory
+work/*
+
+# Except GROUND source files
+!work/ground
+work/ground/*
+!work/ground/SDL
+work/ground/SDL/*
+!work/ground/SDL/src
+work/ground/SDL/src/*
+!work/ground/SDL/src/ground.pr
+
+# Except CONTROLLER source files
+!work/controller
+work/controller/*
+!work/controller/C
+work/controller/C/*
+!work/controller/C/src
+work/controller/C/src/*
+!work/controller/C/src/controller.c
+
+# Except HWAS source files
+!work/hwas
+work/hwas/*
+!work/hwas/C
+work/hwas/C/*
+!work/hwas/C/src
+work/hwas/C/src/*
+!work/hwas/C/src/hwas.c
+
+# Ignore aadl
+*.aadl
+*.pro.user
+

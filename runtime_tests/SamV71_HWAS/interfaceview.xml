@@ -1,0 +1,295 @@
+<InterfaceView asn1file="Generic_Linux_Multiple_Interfaces.asn">
+<Function name="Controller" is_type="NO" language="C" default_implementation="default">
+    <Property name="Taste::coordinates" value="37000 23300 58700 83000"/>
+<Provided_Interface name="ping" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="37000 27800"/>
+</Provided_Interface>
+
+<Provided_Interface name="test" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="37000 41600"/>
+</Provided_Interface>
+
+<Provided_Interface name="InterruptSubscription_Interrupt_Ri" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+    <Input_Parameter name="InputParam" type="Interrupt-Type" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 66800"/>
+</Provided_Interface>
+
+<Required_Interface name="result" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+    <Input_Parameter name="result_value" type="CustomInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="37000 49500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="pong" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="37000 35100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="RawMemoryAccess_ReadWord_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="SourceAddress" encoding="NATIVE"/>
+    <Input_Parameter name="mask" type="WordMask" encoding="NATIVE"/>
+    <Output_Parameter name="value1" type="Word" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 27300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="RawMemoryAccess_ReadBuffer_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="SourceAddress" encoding="NATIVE"/>
+    <Output_Parameter name="buffer" type="ByteBuffer" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 32200"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="RawMemoryAccess_WriteBuffer_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="DestinationAddress" encoding="NATIVE"/>
+    <Input_Parameter name="buffer" type="ByteBuffer" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 37800"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="RawMemoryAccess_WriteWord_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="DestinationAddress" encoding="NATIVE"/>
+    <Input_Parameter name="mask" type="WordMask" encoding="NATIVE"/>
+    <Input_Parameter name="value1" type="Word" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 43600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="InterruptManagement_EnableInterrupt_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="interrupt" type="InterruptNumber" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 51700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="InterruptManagement_DisableInterrupt_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="interrupt" type="InterruptNumber" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 56900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="InterruptSubscriptionManagement_SubscribeToInterrupt_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="interrupt" type="InterruptNumber" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 62000"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="RawMemoryAccess_ExclusiveWriteWord_Pi" kind="Protected">
+    <Input_Parameter name="address" type="DestinationAddress" encoding="NATIVE"/>
+    <Input_Parameter name="wordMask" type="WordMask" encoding="NATIVE"/>
+    <Input_Parameter name="word" type="Word" encoding="NATIVE"/>
+    <Output_Parameter name="status" type="Byte" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 74900"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+<Required_Interface name="RawMemoryAccess_ExclusiveReadWord_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="SourceAddress" encoding="NATIVE"/>
+    <Input_Parameter name="wordMask" type="WordMask" encoding="NATIVE"/>
+    <Output_Parameter name="word" type="Word" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="58700 70100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="HWAS" is_type="NO" language="C" default_implementation="default">
+    <Property name="Taste::coordinates" value="135500 23000 165000 84000"/>
+<Provided_Interface name="InterruptSubscriptionManagement_SubscribeToInterrupt_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="interrupt" type="InterruptNumber" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 61700"/>
+</Provided_Interface>
+
+<Provided_Interface name="InterruptManagement_EnableInterrupt_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="interrupt" type="InterruptNumber" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 51700"/>
+</Provided_Interface>
+
+<Provided_Interface name="InterruptManagement_DisableInterrupt_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="interrupt" type="InterruptNumber" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 56800"/>
+</Provided_Interface>
+
+<Provided_Interface name="RawMemoryAccess_ReadWord_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="SourceAddress" encoding="NATIVE"/>
+    <Input_Parameter name="mask" type="WordMask" encoding="NATIVE"/>
+    <Output_Parameter name="value1" type="Word" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 27400"/>
+</Provided_Interface>
+
+<Provided_Interface name="RawMemoryAccess_WriteWord_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="DestinationAddress" encoding="NATIVE"/>
+    <Input_Parameter name="mask" type="WordMask" encoding="NATIVE"/>
+    <Input_Parameter name="value1" type="Word" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 43600"/>
+</Provided_Interface>
+
+<Provided_Interface name="RawMemoryAccess_WriteBuffer_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="DestinationAddress" encoding="NATIVE"/>
+    <Input_Parameter name="buffer" type="ByteBuffer" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 37800"/>
+</Provided_Interface>
+
+<Provided_Interface name="RawMemoryAccess_ReadBuffer_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="SourceAddress" encoding="NATIVE"/>
+    <Output_Parameter name="buffer" type="ByteBuffer" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 32300"/>
+</Provided_Interface>
+
+<Provided_Interface name="RawMemoryAccess_ExclusiveWriteWord_Pi" kind="Protected">
+    <Input_Parameter name="address" type="DestinationAddress" encoding="NATIVE"/>
+    <Input_Parameter name="wordMask" type="WordMask" encoding="NATIVE"/>
+    <Input_Parameter name="word" type="Word" encoding="NATIVE"/>
+    <Output_Parameter name="status" type="Byte" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 74700"/>
+</Provided_Interface>
+
+<Provided_Interface name="RawMemoryAccess_ExclusiveReadWord_Pi" kind="Protected" wcet="0">
+    <Input_Parameter name="address" type="SourceAddress" encoding="NATIVE"/>
+    <Input_Parameter name="wordMask" type="WordMask" encoding="NATIVE"/>
+    <Output_Parameter name="word" type="Word" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 69900"/>
+</Provided_Interface>
+
+<Required_Interface name="InterruptSubscription_Interrupt_Ri" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+    <Input_Parameter name="InputParam" type="Interrupt-Type" encoding="NATIVE"/>
+    <Property name="Taste::coordinates" value="135500 67000"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Ground" is_type="NO" language="SDL" default_implementation="default">
+    <Property name="Taste::coordinates" value="4700 23200 26000 72600"/>
+<Provided_Interface name="result" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+    <Input_Parameter name="result_value" type="CustomInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="26000 49500"/>
+</Provided_Interface>
+
+<Provided_Interface name="trigger" kind="Cyclic" stack_size="50" period="1000" dispatch_offset="1000" priority="1" wcet="0">
+    <Property name="Taste::coordinates" value="17200 23200"/>
+</Provided_Interface>
+
+<Provided_Interface name="pong" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="26000 35200"/>
+</Provided_Interface>
+
+<Required_Interface name="ping" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="26000 27800"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="test" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+    <Property name="Taste::coordinates" value="26000 41600"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Connection >
+    <Source func_name="Controller" ri_name="RawMemoryAccess_WriteWord_Pi"/>
+    <Target func_name="HWAS" pi_name="RawMemoryAccess_WriteWord_Pi"/>
+    <Property name="Taste::coordinates" value="59300 43600 135200 43600"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="pong"/>
+    <Target func_name="Ground" pi_name="pong"/>
+    <Property name="Taste::coordinates" value="36400 35100 26300 35200"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="RawMemoryAccess_WriteBuffer_Pi"/>
+    <Target func_name="HWAS" pi_name="RawMemoryAccess_WriteBuffer_Pi"/>
+    <Property name="Taste::coordinates" value="59300 37800 135200 37800"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="InterruptManagement_DisableInterrupt_Pi"/>
+    <Target func_name="HWAS" pi_name="InterruptManagement_DisableInterrupt_Pi"/>
+    <Property name="Taste::coordinates" value="59300 56900 135200 56800"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="RawMemoryAccess_ReadWord_Pi"/>
+    <Target func_name="HWAS" pi_name="RawMemoryAccess_ReadWord_Pi"/>
+    <Property name="Taste::coordinates" value="59300 27300 135200 27400"/>
+</Connection>
+
+<Connection >
+    <Source func_name="HWAS" ri_name="InterruptSubscription_Interrupt_Ri"/>
+    <Target func_name="Controller" pi_name="InterruptSubscription_Interrupt_Ri"/>
+    <Property name="Taste::coordinates" value="134900 67000 59000 66800"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="RawMemoryAccess_ExclusiveReadWord_Pi"/>
+    <Target func_name="HWAS" pi_name="RawMemoryAccess_ExclusiveReadWord_Pi"/>
+    <Property name="Taste::coordinates" value="59300 70100 97200 70100 135200 69900"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Ground" ri_name="ping"/>
+    <Target func_name="Controller" pi_name="ping"/>
+    <Property name="Taste::coordinates" value="26600 27800 36700 27800"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="RawMemoryAccess_ReadBuffer_Pi"/>
+    <Target func_name="HWAS" pi_name="RawMemoryAccess_ReadBuffer_Pi"/>
+    <Property name="Taste::coordinates" value="59300 32200 135200 32300"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Ground" ri_name="test"/>
+    <Target func_name="Controller" pi_name="test"/>
+    <Property name="Taste::coordinates" value="26600 41600 36700 41600"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="result"/>
+    <Target func_name="Ground" pi_name="result"/>
+    <Property name="Taste::coordinates" value="36400 49500 26300 49500"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="RawMemoryAccess_ExclusiveWriteWord_Pi"/>
+    <Target func_name="HWAS" pi_name="RawMemoryAccess_ExclusiveWriteWord_Pi"/>
+    <Property name="Taste::coordinates" value="59300 74900 97200 74900 135200 74700"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="InterruptManagement_EnableInterrupt_Pi"/>
+    <Target func_name="HWAS" pi_name="InterruptManagement_EnableInterrupt_Pi"/>
+    <Property name="Taste::coordinates" value="59300 51700 135200 51700"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="InterruptSubscriptionManagement_SubscribeToInterrupt_Pi"/>
+    <Target func_name="HWAS" pi_name="InterruptSubscriptionManagement_SubscribeToInterrupt_Pi"/>
+    <Property name="Taste::coordinates" value="59300 62000 135200 61700"/>
+</Connection>
+
+</InterfaceView>

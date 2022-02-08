@@ -1,0 +1,25 @@
+# Ignore AADL files
+*.aadl
+
+# Ignore whole work directory
+work/*
+
+# Except CONTROLLER source files
+!work/controller
+work/controller/*
+!work/controller/C
+work/controller/C/*
+!work/controller/C/src
+work/controller/C/src/*
+!work/controller/C/src/controller.c
+!work/controller/C/src/controller.h
+
+# Except ACTUATOR source files
+!work/actuator
+work/actuator/*
+!work/actuator/C
+work/actuator/C/*
+!work/actuator/C/src
+work/actuator/C/src/*
+!work/actuator/C/src/actuator.c
+!work/actuator/C/src/actuator.h

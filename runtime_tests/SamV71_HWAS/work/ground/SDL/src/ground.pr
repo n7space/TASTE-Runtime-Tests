@@ -1,0 +1,87 @@
+/* CIF PROCESS (250, 150), (150, 75) */
+process Ground;
+    /* CIF TEXT (1938, 82), (267, 140) */
+    -- Text area for declarations and comments
+    
+    dcl result_data CustomInteger;
+    /* CIF ENDTEXT */
+    /* CIF START (320, 10), (70, 35) */
+    START;
+        /* CIF NEXTSTATE (320, 60), (70, 35) */
+        NEXTSTATE Wait;
+    /* CIF state (1754, 183), (94, 35) */
+    state WaitForTest;
+        /* CIF input (1767, 238), (70, 35) */
+        input pong;
+            /* CIF NEXTSTATE (1754, 293), (94, 35) */
+            NEXTSTATE WaitForTest;
+    endstate;
+    /* CIF state (1549, 172), (94, 35) */
+    state WaitForTest;
+        /* CIF input (1562, 227), (70, 35) */
+        input trigger;
+            /* CIF NEXTSTATE (1549, 282), (94, 35) */
+            NEXTSTATE WaitForTest;
+    endstate;
+    /* CIF state (629, 136), (70, 35) */
+    state Wait;
+        /* CIF input (597, 191), (132, 35) */
+        input result(result_data);
+            /* CIF NEXTSTATE (629, 246), (70, 35) */
+            NEXTSTATE Wait;
+    endstate;
+    /* CIF state (561, 674), (93, 35) */
+    state TestSuccess;
+        /* CIF input (573, 729), (70, 35) */
+        input *;
+            /* CIF NEXTSTATE (561, 784), (93, 35) */
+            NEXTSTATE TestSuccess;
+    endstate;
+    /* CIF state (928, 624), (70, 35) */
+    state TestFail;
+        /* CIF input (928, 679), (70, 35) */
+        input *;
+            /* CIF NEXTSTATE (928, 734), (70, 35) */
+            NEXTSTATE TestFail;
+    endstate;
+    /* CIF state (480, 135), (70, 35) */
+    state Wait;
+        /* CIF input (480, 190), (70, 35) */
+        input trigger;
+            /* CIF output (480, 245), (70, 35) */
+            output ping;
+            /* CIF NEXTSTATE (480, 300), (70, 35) */
+            NEXTSTATE Wait;
+    endstate;
+    /* CIF state (814, 136), (70, 35) */
+    state Wait;
+        /* CIF input (814, 191), (70, 35) */
+        input pong;
+            /* CIF PROCEDURECALL (765, 246), (167, 35) */
+            call writeln('TEST STARTED');
+            /* CIF output (814, 296), (70, 35) */
+            output test;
+            /* CIF NEXTSTATE (801, 351), (94, 35) */
+            NEXTSTATE WaitForTest;
+    endstate;
+    /* CIF state (1268, 163), (94, 35) */
+    state WaitForTest;
+        /* CIF input (1249, 218), (132, 35) */
+        input result(result_data);
+            /* CIF decision (1270, 273), (90, 50) */
+            decision result_data;
+                /* CIF ANSWER (1203, 343), (70, 24) */
+                (1):
+                    /* CIF PROCEDURECALL (1154, 387), (166, 35) */
+                    call writeln('TEST SUCCESS');
+                    /* CIF NEXTSTATE (1191, 437), (93, 35) */
+                    NEXTSTATE TestSuccess;
+                /* CIF ANSWER (1366, 343), (70, 24) */
+                else:
+                    /* CIF PROCEDURECALL (1332, 387), (137, 35) */
+                    call writeln('TEST FAIL');
+                    /* CIF NEXTSTATE (1366, 442), (70, 35) */
+                    NEXTSTATE TestFail;
+            enddecision;
+    endstate;
+endprocess Ground;

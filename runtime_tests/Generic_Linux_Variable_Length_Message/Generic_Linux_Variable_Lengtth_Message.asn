@@ -1,0 +1,16 @@
+GENERIC-LINUX-VARIABLE-LENGTTH-MESSAGE-DATAVIEW DEFINITIONS ::=
+BEGIN
+   LargeUint32 ::= INTEGER(0 .. 4294967295)
+
+   BigParameter ::= SEQUENCE {
+       x INTEGER(0 .. 65535),
+       y SEQUENCE (SIZE(262144)) OF LargeUint32
+   }
+
+   SmallParameter ::= SEQUENCE {
+       x INTEGER(0 .. 65535),
+       y INTEGER(0 .. 65535)
+   }
+
+END
+

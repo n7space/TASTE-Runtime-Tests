@@ -1,0 +1,11 @@
+GENERIC-LINUX-MULTIPLE-INTERFACES-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   CustomInteger ::= INTEGER(0 .. 1000000)
+
+   CustomParameter ::= SEQUENCE {
+       a CustomInteger,
+       b CustomInteger
+   }
+
+END

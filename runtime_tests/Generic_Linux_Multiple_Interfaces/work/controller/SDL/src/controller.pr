@@ -1,0 +1,153 @@
+/* CIF PROCESS (250, 149), (150, 75) */
+process Controller;
+    state Error;
+    substructure
+            /* CIF procedure (388, 331), (70, 35) */
+            procedure entry;
+                /* CIF START (368, 140), (70, 35) */
+                START;
+                    /* CIF PROCEDURECALL (341, 195), (123, 35) */
+                    call writeln('ERROR');
+                    /* CIF return (385, 250), (35, 35) */
+                    return ;
+            endprocedure;
+            /* CIF START (716, 193), (70, 35) */
+            START;
+                /* CIF NEXTSTATE (716, 248), (70, 35) */
+                NEXTSTATE Fail;
+            /* CIF state (716, 248), (70, 35) */
+            state Fail;
+                /* CIF input (716, 303), (70, 35) */
+                input *;
+                    /* CIF NEXTSTATE (716, 358), (70, 35) */
+                    NEXTSTATE Fail;
+            endstate;
+    endsubstructure;
+    /* CIF TEXT (511, 19), (267, 140) */
+    -- Text area for declarations and comments
+    
+    dcl task_data CustomParameter;
+    dcl task_result CustomInteger;
+    /* CIF ENDTEXT */
+    /* CIF START (320, 10), (70, 35) */
+    START;
+        /* CIF NEXTSTATE (320, 60), (70, 35) */
+        NEXTSTATE SendA;
+    /* CIF state (394, 597), (70, 35) */
+    state SendB;
+        /* CIF input (394, 652), (70, 35) */
+        input trigger;
+            /* CIF task (345, 707), (167, 35) */
+            task task_data := { a 22, b 44 };
+            /* CIF output (365, 762), (127, 35) */
+            output task_b(task_data);
+            /* CIF NEXTSTATE (394, 817), (70, 35) */
+            NEXTSTATE WaitB;
+    endstate;
+    /* CIF state (625, 600), (70, 35) */
+    state SendB;
+        /* CIF input (584, 655), (147, 35) */
+        input report_a(task_result);
+            /* CIF NEXTSTATE (623, 710), (70, 35) */
+            NEXTSTATE Error;
+    endstate;
+    /* CIF state (799, 191), (70, 35) */
+    state SendA;
+        /* CIF input (757, 246), (148, 35) */
+        input report_b(task_result);
+            /* CIF NEXTSTATE (797, 301), (70, 35) */
+            NEXTSTATE Error;
+    endstate;
+    /* CIF state (607, 192), (70, 35) */
+    state SendA;
+        /* CIF input (566, 247), (147, 35) */
+        input report_a(task_result);
+            /* CIF NEXTSTATE (605, 302), (70, 35) */
+            NEXTSTATE Error;
+    endstate;
+    /* CIF state (406, 193), (70, 35) */
+    state SendA;
+        /* CIF input (406, 248), (70, 40) */
+        input trigger;
+            /* CIF task (358, 308), (164, 35) */
+            task task_data := { a 11, b 33};
+            /* CIF output (377, 358), (126, 35) */
+            output task_a(task_data);
+            /* CIF NEXTSTATE (406, 408), (70, 35) */
+            NEXTSTATE WaitA;
+    endstate;
+    /* CIF state (1399, 599), (70, 35) */
+    state WaitB;
+        /* CIF input (1358, 654), (147, 35) */
+        input report_a(task_result);
+            /* CIF NEXTSTATE (1397, 709), (70, 35) */
+            NEXTSTATE Error;
+    endstate;
+    /* CIF state (1135, 592), (70, 35) */
+    state WaitB;
+        /* CIF input (1135, 647), (70, 35) */
+        input trigger;
+            /* CIF NEXTSTATE (1135, 702), (70, 35) */
+            NEXTSTATE WaitB;
+    endstate;
+    /* CIF state (871, 602), (70, 35) */
+    state SendB;
+        /* CIF input (829, 657), (148, 35) */
+        input report_b(task_result);
+            /* CIF NEXTSTATE (869, 712), (70, 35) */
+            NEXTSTATE Error;
+    endstate;
+    /* CIF state (1589, 210), (70, 35) */
+    state WaitA;
+        /* CIF input (1547, 265), (148, 35) */
+        input report_b(task_result);
+            /* CIF NEXTSTATE (1587, 320), (70, 35) */
+            NEXTSTATE Error;
+    endstate;
+    /* CIF state (1065, 197), (70, 35) */
+    state WaitA;
+        /* CIF input (1065, 252), (70, 35) */
+        input trigger;
+            /* CIF NEXTSTATE (1065, 307), (70, 35) */
+            NEXTSTATE WaitA;
+    endstate;
+    /* CIF state (1878, 48), (70, 35) */
+    state Error;
+    endstate;
+    /* CIF state (1307, 204), (70, 35) */
+    state WaitA;
+        /* CIF input (1266, 259), (147, 35) */
+        input report_a(task_result);
+            /* CIF decision (1295, 314), (91, 50) */
+            decision task_result;
+                /* CIF ANSWER (1262, 384), (70, 24) */
+                (11):
+                    /* CIF PROCEDURECALL (1226, 428), (140, 35) */
+                    call writeln('task_a OK');
+                    /* CIF NEXTSTATE (1262, 478), (70, 35) */
+                    NEXTSTATE SendB;
+                /* CIF ANSWER (1378, 384), (70, 24) */
+                else:
+                    /* CIF NEXTSTATE (1378, 428), (70, 35) */
+                    NEXTSTATE Error;
+            enddecision;
+    endstate;
+    /* CIF state (1664, 593), (70, 35) */
+    state WaitB;
+        /* CIF input (1622, 648), (148, 35) */
+        input report_b(task_result);
+            /* CIF decision (1652, 703), (88, 50) */
+            decision task_result;
+                /* CIF ANSWER (1619, 773), (70, 24) */
+                (44):
+                    /* CIF PROCEDURECALL (1580, 817), (147, 35) */
+                    call writeln('task_b OK');
+                    /* CIF NEXTSTATE (1619, 867), (70, 35) */
+                    NEXTSTATE SendA;
+                /* CIF ANSWER (1738, 773), (70, 24) */
+                else:
+                    /* CIF NEXTSTATE (1738, 817), (70, 35) */
+                    NEXTSTATE Error;
+            enddecision;
+    endstate;
+endprocess Controller;

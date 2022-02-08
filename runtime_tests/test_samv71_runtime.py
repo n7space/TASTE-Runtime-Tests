@@ -76,6 +76,7 @@ def test_samv71_variable_length_message(taste_project):
 # \brief SamV71_HWAS
 # \SRS ETB-FUN-5010
 # \SRS ETB-FUN-5020
+# \SRS ETB-FUN-5030
 # \SRS ETB-FUN-5040
 # \SRS ETB-FUN-5050
 @pytest.mark.parametrize('taste_project',

@@ -1,0 +1,6 @@
+logs/
+reports/
+doxygen/
+__pycache__/
+*.py[cod]
+*$py.class

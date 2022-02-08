@@ -1,0 +1,30 @@
+<DeploymentView>
+    <Node name="CPP_Linux_Runtime_1" type="ocarina_processors_x86::x86.generic_linux" node_label="Node_1" namespace="ocarina_processors_x86">
+        <Property name="Taste::coordinates" value="20200 19400 36200 35400"/>
+        <Partition name="Partition_1">
+            <Function name="Controller" path="Controller"/>
+        </Partition>
+        <Device name="eth0" requires_bus_access="ocarina_buses::ip.generic" config="{ devname  &quot;eth0&quot;, address  &quot;127.0.0.1&quot;, port  9100 }" port="eth0" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-socket-ip-driver.asn" asn1type="Socket-IP-Conf-T" asn1module="LINUX-SOCKET-IP-DRIVER" extends="ocarina_drivers::ip_socket" namespace="ocarina_drivers" impl_extends="ocarina_drivers::ip_socket.linux" bus_namespace="ocarina_buses">
+            <Property name="Taste::coordinates" value="36200 21100"/>
+        </Device>
+    </Node>
+    <Node name="CPP Linux Runtime_2" type="ocarina_processors_x86::x86.generic_linux" node_label="Node_2" namespace="ocarina_processors_x86">
+        <Property name="Taste::coordinates" value="79100 21000 95100 37000"/>
+        <Partition name="Partition_2">
+            <Function name="Actuator" path="Actuator"/>
+        </Partition>
+        <Device name="eth0" requires_bus_access="ocarina_buses::ip.generic" config="{ devname  &quot;eth0&quot;, address  &quot;127.0.0.1&quot;, port  9101 }" port="eth0" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-socket-ip-driver.asn" asn1type="Socket-IP-Conf-T" asn1module="LINUX-SOCKET-IP-DRIVER" extends="ocarina_drivers::ip_socket" namespace="ocarina_drivers" impl_extends="ocarina_drivers::ip_socket.linux" bus_namespace="ocarina_buses">
+            <Property name="Taste::coordinates" value="79100 23900"/>
+        </Device>
+    </Node>
+    <Connection name="Connection_1" from_node="CPP_Linux_Runtime_1" from_port="eth0" to_bus="ocarina_buses::ip.generic" to_node="CPP Linux Runtime_2" to_port="eth0">
+            <Property name="Taste::coordinates" value="37200 21100 57700 21100 57700 23900 78100 23900"/>
+            <Message name="Message_1" from_function="Controller" from_interface="task_a_native" to_function="Actuator" to_interface="task_a_native"/>
+            <Message name="Message_2" from_function="Controller" from_interface="task_b_acn" to_function="Actuator" to_interface="task_b_acn"/>
+            <Message name="Message_3" from_function="Controller" from_interface="task_b_uper" to_function="Actuator" to_interface="task_b_uper"/>
+            <Message name="Message_4" from_function="Controller" from_interface="task_b_native" to_function="Actuator" to_interface="task_b_native"/>
+            <Message name="Message_5" from_function="Controller" from_interface="task_a_uper" to_function="Actuator" to_interface="task_a_uper"/>
+            <Message name="Message_6" from_function="Controller" from_interface="task_a_acn" to_function="Actuator" to_interface="task_a_acn"/>
+            <Message name="Message_7" from_function="Actuator" from_interface="result" to_function="Controller" to_interface="result"/>
+    </Connection>
+</DeploymentView>

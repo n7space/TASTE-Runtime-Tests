@@ -1,0 +1,6 @@
+[submodule "TASTE-SAMV71-Runtime"]
+	path = TASTE-SAMV71-Runtime
+	url = git@github.com:n7space/TASTE-SAMV71-Runtime.git
+[submodule "TASTE-SAMV71-Drivers"]
+	path = TASTE-SAMV71-Drivers
+	url = git@github.com:n7space/TASTE-SAMV71-Drivers.git

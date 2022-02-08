@@ -1,0 +1,33 @@
+GENERIC-LINUX-MULTIPLE-INTERFACES-DATAVIEW DEFINITIONS ::=
+BEGIN
+
+   CustomInteger ::= INTEGER(0 .. 1000000)
+
+   CustomParameter ::= SEQUENCE {
+       a CustomInteger,
+       b CustomInteger
+   }
+
+    DestinationAddress ::= INTEGER(0 .. 4294967295)
+
+    SourceAddress ::= INTEGER(0 .. 4294967295)
+
+    Word ::= INTEGER(0 .. 4294967295)
+
+    WordMask ::= INTEGER(0 .. 4294967295)
+
+    BufferSize ::= INTEGER(0 .. 65535)
+
+    InterruptNumber ::= INTEGER(0 .. 255)
+
+    Byte ::= INTEGER(0 .. 255)
+
+    ByteBuffer ::= SEQUENCE (SIZE(0 .. 256)) OF Byte(0 .. 255)
+
+    Interrupt-Type ::= SEQUENCE
+    {
+        interrupt InterruptNumber(0 .. 255)
+    }
+
+END
+

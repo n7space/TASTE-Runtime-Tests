@@ -1,0 +1,30 @@
+<DeploymentView>
+    <Node name="SAM V71 Runtime_1" type="ocarina_processors_arm::samv71.freertos" node_label="Node_1" namespace="ocarina_processors_arm">
+        <Property name="Taste::coordinates" value="98800 44000 114800 60000"/>
+        <Partition name="Partition_1">
+            <Function name="Actuator" path="Actuator"/>
+        </Partition>
+        <Device name="uart0" requires_bus_access="ocarina_buses::serial.ccsds" config="{ devname  uart4, speed  b38400, parity  even, bits  8, use-paritybit  FALSE }" port="uart0" asn1file="/home/taste/tool-inst/include/TASTE-SAMV71-Drivers/configurations/samv71-serial-ccsds-driver.asn" asn1type="Serial-CCSDS-SamV71-Conf-T" asn1module="SAMV71-SERIAL-CCSDS-DRIVER" namespace="ocarina_drivers" bus_namespace="ocarina_buses" impl_extends="ocarina_drivers::serial_ccsds.samv71" extends="ocarina_drivers::serial_ccsds">
+            <Property name="Taste::coordinates" value="98800 48200"/>
+        </Device>
+    </Node>
+    <Node name="CPP_Linux_Runtime_1" type="ocarina_processors_x86::x86.generic_linux" node_label="Node_3" namespace="ocarina_processors_x86">
+        <Property name="Taste::coordinates" value="18500 39800 34500 55800"/>
+        <Partition name="Partition_3">
+            <Property name="Taste::coordinates" value="22900 44100 30900 52100"/>
+            <Function name="Controller" path="Controller"/>
+        </Partition>
+        <Device name="uart0" requires_bus_access="ocarina_buses::serial.ccsds" config="{ devname  &quot;remote_serial0&quot;, speed  b38400, parity  even, bits  8, use-paritybit  FALSE }" port="uart0" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-serial-ccsds-driver.asn" asn1type="Serial-CCSDS-Linux-Conf-T" asn1module="LINUX-SERIAL-CCSDS-DRIVER" namespace="ocarina_drivers" bus_namespace="ocarina_buses" impl_extends="ocarina_drivers::serial_ccsds.linux" extends="ocarina_drivers::serial_ccsds">
+            <Property name="Taste::coordinates" value="34500 45600"/>
+        </Device>
+    </Node>
+    <Connection name="Connection_1" from_node="SAM V71 Runtime_1" from_port="uart0" to_bus="ocarina_buses::serial.ccsds" to_node="CPP_Linux_Runtime_1" to_port="uart0">
+            <Property name="Taste::coordinates" value="97800 48200 66700 48200 66700 45600 35500 45600"/>
+            <Message name="Message_5" from_function="Actuator" from_interface="report_b" to_function="Controller" to_interface="report_b"/>
+            <Message name="Message_6" from_function="Actuator" from_interface="report_a" to_function="Controller" to_interface="report_a"/>
+            <Message name="Message_7" from_function="Controller" from_interface="task_b" to_function="Actuator" to_interface="task_b"/>
+            <Message name="Message_8" from_function="Controller" from_interface="task_a" to_function="Actuator" to_interface="task_a"/>
+            <Message name="Message_1" from_function="Controller" from_interface="ping" to_function="Actuator" to_interface="ping"/>
+            <Message name="Message_2" from_function="Actuator" from_interface="pong" to_function="Controller" to_interface="pong"/>
+    </Connection>
+</DeploymentView>

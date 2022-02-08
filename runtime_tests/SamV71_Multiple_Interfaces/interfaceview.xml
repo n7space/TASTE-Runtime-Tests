@@ -1,0 +1,124 @@
+<InterfaceView asn1file="Generic_Linux_Multiple_Interfaces.asn">
+<Function name="Actuator" is_type="NO" language="C" default_implementation="default">
+    <Property name="Taste::coordinates" value="83100 23700 114900 73300"/>
+<Provided_Interface name="task_a" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_data" type="CustomParameter" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="83100 27900"/>
+</Provided_Interface>
+
+<Provided_Interface name="task_b" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_data" type="CustomParameter" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="83100 33800"/>
+</Provided_Interface>
+
+<Provided_Interface name="ping" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Property name="Taste::coordinates" value="83100 39500"/>
+</Provided_Interface>
+
+<Required_Interface name="report_a" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_result" type="CustomInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="83100 55500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="report_b" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_result" type="CustomInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="83100 63400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="pong" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Property name="Taste::coordinates" value="83100 46400"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Controller" is_type="NO" language="SDL" default_implementation="default">
+    <Property name="Taste::coordinates" value="14700 23600 46200 72900"/>
+<Provided_Interface name="report_a" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_result" type="CustomInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="46200 55400"/>
+</Provided_Interface>
+
+<Provided_Interface name="report_b" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_result" type="CustomInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="46200 63300"/>
+</Provided_Interface>
+
+<Provided_Interface name="trigger" kind="Cyclic" wcet="0" period="2000" stack_size="50" dispatch_offset="1000" priority="1">
+    <Property name="Taste::coordinates" value="24300 23600"/>
+</Provided_Interface>
+
+<Provided_Interface name="pong" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Property name="Taste::coordinates" value="46200 46500"/>
+</Provided_Interface>
+
+<Required_Interface name="task_a" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_data" type="CustomParameter" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="46200 27800"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="task_b" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Input_Parameter name="task_data" type="CustomParameter" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="46200 33700"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="false"/>
+</Required_Interface>
+
+<Required_Interface name="ping" kind="Sporadic" wcet="0" miat="0" stack_size="50" queue_size="1" priority="1">
+    <Property name="Taste::coordinates" value="46200 39100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Connection >
+    <Source func_name="Actuator" ri_name="report_a"/>
+    <Target func_name="Controller" pi_name="report_a"/>
+    <Property name="Taste::coordinates" value="82500 55500 46500 55400"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Actuator" ri_name="report_b"/>
+    <Target func_name="Controller" pi_name="report_b"/>
+    <Property name="Taste::coordinates" value="82500 63400 46500 63300"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="ping"/>
+    <Target func_name="Actuator" pi_name="ping"/>
+    <Property name="Taste::coordinates" value="46800 39100 64800 39100 82800 39500"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Actuator" ri_name="pong"/>
+    <Target func_name="Controller" pi_name="pong"/>
+    <Property name="Taste::coordinates" value="82500 46400 64500 46400 46500 46500"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="task_b"/>
+    <Target func_name="Actuator" pi_name="task_b"/>
+    <Property name="Taste::coordinates" value="46800 33700 82800 33800"/>
+</Connection>
+
+<Connection >
+    <Source func_name="Controller" ri_name="task_a"/>
+    <Target func_name="Actuator" pi_name="task_a"/>
+    <Property name="Taste::coordinates" value="46800 27800 82800 27900"/>
+</Connection>
+
+</InterfaceView>

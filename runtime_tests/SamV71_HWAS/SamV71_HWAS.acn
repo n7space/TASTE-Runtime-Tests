@@ -1,0 +1,25 @@
+GENERIC-LINUX-MULTIPLE-INTERFACES-DATAVIEW DEFINITIONS ::= BEGIN
+
+    DestinationAddress [size 32, encoding pos-int, endianness little]
+
+    SourceAddress [size 32, encoding pos-int, endianness little]
+
+    Word [size 32, encoding pos-int, endianness little]
+
+    WordMask [size 32, encoding pos-int, endianness little]
+
+    BufferSize [size 16, encoding pos-int, endianness little]
+
+    InterruptNumber [size 8, encoding pos-int]
+
+    Byte [size 8, encoding pos-int]
+
+    ByteBuffer []
+
+    Interrupt-Type []
+    {
+        interrupt []
+    }
+
+END
+

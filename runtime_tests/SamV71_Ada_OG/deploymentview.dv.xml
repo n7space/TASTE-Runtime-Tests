@@ -1,0 +1,24 @@
+<DeploymentView>
+    <Node name="x86 Linux CPP_1" type="ocarina_processors_x86::x86.generic_linux" node_label="Node_1" namespace="ocarina_processors_x86">
+        <Property name="Taste::coordinates" value="30500 68500 46500 84500"/>
+        <Partition name="LinuxPart">
+            <Function name="Pinger" path="Pinger"/>
+        </Partition>
+        <Device name="uart0" requires_bus_access="ocarina_buses::serial.ccsds" config="{ devname  &quot;remote_serial0&quot;, speed  b38400, parity  even, bits  8, use-paritybit  FALSE }" port="uart0" asn1file="/home/taste/tool-inst/include/TASTE-Linux-Drivers/configurations/linux-serial-ccsds-driver.asn" asn1type="Serial-CCSDS-Linux-Conf-T" asn1module="LINUX-SERIAL-CCSDS-DRIVER" bus_namespace="ocarina_buses" impl_extends="ocarina_drivers::serial_ccsds.linux" extends="ocarina_drivers::serial_ccsds" namespace="ocarina_drivers">
+            <Property name="Taste::coordinates" value="46500 71900"/>
+        </Device>
+    </Node>
+    <Node name="SAM_V71_FreeRTOS_N7S_1" type="ocarina_processors_arm::samv71.freertos" node_label="Node_2" namespace="ocarina_processors_arm">
+        <Property name="Taste::coordinates" value="91800 71400 107800 87400"/>
+        <Partition name="SamPart">
+            <Function name="Ponger" path="Ponger"/>
+        </Partition>
+        <Device name="uart0" requires_bus_access="ocarina_buses::serial.ccsds" config="{ devname  uart4, speed  b38400, parity  even, bits  8, use-paritybit  FALSE }" port="uart0" asn1file="/home/taste/tool-inst/include/TASTE-SAMV71-Drivers/configurations/samv71-serial-ccsds-driver.asn" asn1type="Serial-CCSDS-SamV71-Conf-T" asn1module="SAMV71-SERIAL-CCSDS-DRIVER" bus_namespace="ocarina_buses" impl_extends="ocarina_drivers::serial_ccsds.samv71" extends="ocarina_drivers::serial_ccsds" namespace="ocarina_drivers">
+        </Device>
+    </Node>
+    <Connection name="Connection_1" from_node="x86 Linux CPP_1" from_port="uart0" to_bus="ocarina_buses::serial.ccsds" to_node="SAM_V71_FreeRTOS_N7S_1" to_port="uart0">
+            <Property name="Taste::coordinates" value="47500 71900 69200 71900 69200 73100 90800 73100"/>
+            <Message name="Message_1" from_function="Pinger" from_interface="Ping" to_function="Ponger" to_interface="Ping"/>
+            <Message name="Message_2" from_function="Ponger" from_interface="Pong" to_function="Pinger" to_interface="Pong"/>
+    </Connection>
+</DeploymentView>

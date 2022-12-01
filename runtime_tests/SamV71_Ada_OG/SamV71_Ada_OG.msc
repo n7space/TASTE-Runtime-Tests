@@ -1,0 +1,12 @@
+mscdocument SamV71_Ada_OG /* MSC AND */;
+    language ASN.1;
+    data SamV71_Ada_OG.asn;
+
+/* CIF MSCDOCUMENT (0, 0) (4200, 2300) */
+
+mscdocument Nominal /* MSC LEAF */;
+
+msc SamV71_Ada_OG;
+endmsc;
+endmscdocument;
+endmscdocument;

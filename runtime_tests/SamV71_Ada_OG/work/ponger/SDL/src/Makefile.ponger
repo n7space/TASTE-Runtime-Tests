@@ -1,0 +1,7 @@
+all:
+	mkdir -p code
+	cd code && opengeode --toAda /home/taste/etb/TASTE-Runtime-Tests/runtime_tests/SamV71_Ada_OG/work/ponger/SDL/src/system_structure.pr "../ponger.pr"
+	asn1scc -fp AUTO -typePrefix asn1Scc -o code -equal -Ada dataview-uniq.asn code/ponger_datamodel.asn
+	cd code && gnat make ponger
+clean:
+	rm -rf code

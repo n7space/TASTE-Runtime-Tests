@@ -111,3 +111,16 @@ def test_samv71_ada(taste_project):
     # Check expected compilation output
     stderr = build.stderr.decode('utf-8')
     assert build.returncode == 0, 'Compilation errors: \n{}'.format(stderr)
+
+##
+# \brief SamV71_Ada_OG
+# \SRS ETB-DES-50
+@pytest.mark.parametrize('taste_project',
+                         ['SamV71_Ada_OG'],
+                         indirect=True)
+def test_samv71_ada(taste_project):
+    build = common.do_build(taste_project, ['deploymentview', 'debug'])
+
+    # Check expected compilation output
+    stderr = build.stderr.decode('utf-8')
+    assert build.returncode == 0, 'Compilation errors: \n{}'.format(stderr)

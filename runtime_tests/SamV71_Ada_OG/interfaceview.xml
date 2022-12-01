@@ -1,0 +1,58 @@
+<InterfaceView asn1file="SamV71_Ada_OG.acn">
+<Function name="Ponger" is_type="NO" language="SDL" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="71600 36300 91600 44300"/>
+<Provided_Interface name="Ping" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" priority="1" stack_size="50" miat="0">
+    <Input_Parameter name="pingArg" type="MyInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="71600 39500"/>
+</Provided_Interface>
+
+<Required_Interface name="Pong" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" priority="1" stack_size="50" miat="0">
+    <Input_Parameter name="pongArg" type="MyInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="71600 42800"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Function name="Pinger" is_type="NO" language="SDL" default_implementation="default" fixed_system_element="NO" required_system_element="NO" FPGA_Configurations="" startup_priority="1">
+    <Property name="Taste::coordinates" value="23400 37200 43400 45200"/>
+<Provided_Interface name="Pong" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" priority="1" stack_size="50" miat="0">
+    <Input_Parameter name="pongArg" type="MyInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="43400 42800"/>
+</Provided_Interface>
+
+<Provided_Interface name="Tick" kind="Cyclic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" priority="1" stack_size="50">
+    <Property name="Taste::coordinates" value="35400 38400"/>
+</Provided_Interface>
+
+<Required_Interface name="Ping" kind="Sporadic" enable_multicast="true" layer="default" required_system_element="NO" wcet="0" queue_size="1" priority="1" stack_size="50" miat="0">
+    <Input_Parameter name="pingArg" type="MyInteger" encoding="ACN"/>
+    <Property name="Taste::coordinates" value="43400 39300"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="SDL"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Ponger" ri_name="Pong"/>
+    <Target func_name="Pinger" pi_name="Pong"/>
+    <Property name="Taste::coordinates" value="71000 42800 43700 42800"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Pinger" ri_name="Ping"/>
+    <Target func_name="Ponger" pi_name="Ping"/>
+    <Property name="Taste::coordinates" value="44000 39300 57600 39300 71300 39500"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>

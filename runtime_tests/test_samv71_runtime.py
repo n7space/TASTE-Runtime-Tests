@@ -98,3 +98,16 @@ def test_samv71_hwas(taste_project):
 
     errors = common.do_execute(taste_project, expected, timeout)
     assert not errors, '\n'.join(errors)
+
+##
+# \brief SamV71_Ada
+# \SRS ETB-DES-40
+@pytest.mark.parametrize('taste_project',
+                         ['SamV71_Ada'],
+                         indirect=True)
+def test_samv71_ada(taste_project):
+    build = common.do_build(taste_project, ['deploymentview', 'debug'])
+
+    # Check expected compilation output
+    stderr = build.stderr.decode('utf-8')
+    assert build.returncode == 0, 'Compilation errors: \n{}'.format(stderr)

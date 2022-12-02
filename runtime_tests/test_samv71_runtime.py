@@ -118,7 +118,7 @@ def test_samv71_ada(taste_project):
 @pytest.mark.parametrize('taste_project',
                          ['SamV71_Ada_OG'],
                          indirect=True)
-def test_samv71_ada(taste_project):
+def test_samv71_ada_og(taste_project):
     build = common.do_build(taste_project, ['deploymentview', 'debug'])
 
     # Check expected compilation output

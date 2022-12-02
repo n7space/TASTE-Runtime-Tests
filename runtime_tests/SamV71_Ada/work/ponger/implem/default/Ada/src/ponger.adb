@@ -10,17 +10,16 @@
 
 package body Ponger is
 
-   procedure Ping (pingArg : in out asn1SccMyinteger) is
-   
-      begin
-         --  Write your code here
-         null;
-      end Ping;
+    storageVar : asn1SccMyInteger := 0;
 
+    procedure Ping (pingArg : in out asn1SccMyinteger) is
+    begin
+        storageVar := pingArg * 2;
+        Ponger_RI.Pong(storageVar);
+    end Ping;
 
-   begin
-      --  Write your startup code here
-      null;
+    begin
+        null;
 
 end Ponger;
 

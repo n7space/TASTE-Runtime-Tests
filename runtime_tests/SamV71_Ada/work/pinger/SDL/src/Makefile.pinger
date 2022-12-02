@@ -1,7 +1,0 @@
-all:
-	mkdir -p code
-	cd code && opengeode --toAda /home/taste/dev/TASTE-Runtime-Tests/runtime_tests/SamV71_Ada/work/pinger/SDL/src/pinger.pr 
-	asn1scc -fp AUTO -typePrefix asn1Scc -o code -equal -Ada dataview-uniq.asn code/pinger_datamodel.asn
-	cd code && gnat make pinger
-clean:
-	rm -rf code

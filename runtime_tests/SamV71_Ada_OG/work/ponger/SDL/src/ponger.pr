@@ -1,0 +1,24 @@
+/* CIF PROCESS (250, 150), (150, 75) */
+process Ponger;
+    /* CIF TEXT (906, 88), (170, 140) */
+    dcl counter MyInteger;
+    dcl pingArg MyInteger;
+    /* CIF ENDTEXT */
+    /* CIF START (367, 20), (70, 35) */
+    START;
+        /* CIF task (355, 75), (92, 35) */
+        task counter := 0;
+        /* CIF NEXTSTATE (367, 125), (70, 35) */
+        NEXTSTATE Wait;
+    /* CIF state (503, 22), (70, 35) */
+    state Wait;
+        /* CIF input (485, 77), (104, 35) */
+        input Ping(pingArg);
+            /* CIF task (462, 132), (151, 35) */
+            task counter := pingArg * 2;
+            /* CIF output (484, 187), (107, 35) */
+            output Pong(counter);
+            /* CIF NEXTSTATE (503, 242), (70, 35) */
+            NEXTSTATE Wait;
+    endstate;
+endprocess Ponger;

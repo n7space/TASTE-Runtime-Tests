@@ -93,3 +93,17 @@ def test_generic_linux_multiple_interfaces(taste_project):
     ]
     errors = common.do_execute(taste_project, expected, timeout)
     assert not errors, '\n'.join(errors)
+
+##
+# As per chapter 5.1 of ETB-N7S-ADD-001, TASTE Linux runtime uses C++ threading primitives for concurrency.
+# PolyORB is not used in the runtime.
+# \SRS  ETB-DES-190
+def test_TasteLinuxRuntimeDoesntUsePolyOrbForTaskScheduling():
+    pass
+
+##
+# As per chapter 5.1 of ETB-N7S-ADD-001, TASTE Linux runtime uses Broker (and code generated from applicable templates)
+# for message routing. PolyORB is not used in the runtime.
+# \SRS  ETB-DES-200
+def test_TasteLinuxRuntimeDoesntUsePolyOrbForMessagPassing():
+    pass

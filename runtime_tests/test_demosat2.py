@@ -2,20 +2,6 @@
 # -*- coding: utf-8 -*-
 
 ##
-# Date: 2022.12.09
-# Result: DemoSat2 is LIDAR instrument with:
-# \* COTS laser rangefinder communicating via UART
-# \* Stepper motor driven via PIO
-# \* Limit sensors read via PIO
-# \* Auxiliary light sensor read via ADC
-# \* Auxiliary LED "enginemocks"/"data indicators" driven via PIO
-# \* Auxiliary “deployment”servos driven via PIO + PWM.
-#
-# \SRS ETB-OPER-10
-def test_ProvideDemonstrationApplication():
-    pass
-
-##
 # As per chapter 5.1 of ETB-N7S-ADD-001, DemoSat2 is based on the TASTE SAMV71 runtime and as such it too targets
 # ATSAMV71Q21 MCU
 #

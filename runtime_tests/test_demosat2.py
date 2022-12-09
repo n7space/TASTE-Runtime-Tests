@@ -19,7 +19,6 @@ def test_ProvideDemonstrationApplication():
 # Date: 2022.12.09
 # Result: Mission scenario exercises all high-level SEDS functions:
 # \* LIDAR (sensor, but with integrated actuator)
-# \* Servos (actuator)
 # \* Light Sensor (sensor)
 # \* LED mocks (actuator)
 #
@@ -74,7 +73,7 @@ def test_DemoIncludesTwoSedsDescribedSensors():
   pass
 
 ##
-# DemoSat2 SAMV71-based node contains 2 actuators - servos and LEDs - described using SEDS models.
+# DemoSat2 SAMV71-based node contains 2 actuators - LIDAR motor and LEDs - described using SEDS models.
 #
 # \SRS ETB-DES-100
 def test_DemoIncludesTwoSedsDescribedActuators():
@@ -110,10 +109,11 @@ def test_DemoIncludesLinuxBasedNode():
   pass
 
 ##
-# DemoSat2 Linux-based node contains 3 interfaces for communication with SAMV71-based node:
+# DemoSat2 Linux-based node contains 4 interfaces for communication with SAMV71-based node:
 # \* tc
 # \* tm
 # \* hk
+# \* debug_hk
 #
 # \SRS ETB-DES-130
 def test_DemoLinuxNodeCommunicatesUsingAtLeastThreeInterfaces():

@@ -127,8 +127,8 @@ def test_samv71_ada_og(taste_project):
 
 ##
 # TASTE SAMV71 runtime supports deployment of TASTE models containing at least 8 TASTE functions (including
-# at least 4 EDS based). This is validated by the demonstration application (DemoSat2) which contains 14 EDS functions
-# and 1 Linux functions.
+# at least 4 EDS based). This is validated by the demonstration application (DemoSat2) which contains 8 EDS functions,
+# 5 C-based functions and 1 Linux function.
 # \SRS  ETB-PER-10
 @pytest.mark.parametrize('taste_project',
                          ['Demo-Sat-2/src/DemoSat2'],
@@ -175,7 +175,7 @@ def test_TasteSamv71RuntimeUsesSdram():
 
 ##
 # TASTE SAMV71 runtime shall use DMA in UART implementation as specified in ETB-N7S-ADD-001 document.
-# As per chapter 5.1 of ETB-N7S-ADD-001, TASTE SAMV71 runtime uses Uart driver to configure UART attached to the MCU.
+# As per chapter 5.1 of ETB-N7S-ADD-001, TASTE SAMV71 runtime uses Xdmac driver t configure DMA for UART communication.
 # \SRS  ETB-DES-14
 def test_TasteSamv71RuntimeUsesDma():
     pass

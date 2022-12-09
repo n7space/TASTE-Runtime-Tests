@@ -130,7 +130,15 @@ def test_samv71_ada_og(taste_project):
 # at least 4 EDS based). This is validated by the demonstration application (DemoSat2) which contains 14 EDS functions
 # and 1 Linux functions.
 # \SRS  ETB-PER-10
-def test_TasteSamV71RuntimeSupportsAtLeastEightFunctions():
+@pytest.mark.parametrize('taste_project',
+                         ['Demo-Sat-2/src/DemoSat2'],
+                         indirect=True)
+def test_TasteSamV71RuntimeSupportsAtLeastEightFunctions(taste_project):
+    build = common.do_build(taste_project, ['hw', 'debug'])
+
+    # Check expected compilation output
+    stderr = build.stderr.decode('utf-8')
+    assert build.returncode == 0, 'Compilation errors: \n{}'.format(stderr)
     pass
 
 ##

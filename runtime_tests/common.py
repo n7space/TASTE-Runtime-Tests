@@ -23,8 +23,8 @@ def do_build(test_name, arguments):
 
     # Initialize logs
     test_path = os.path.join('.', test_name)
-    stdout_file = '{}_stdout.log'.format(test_name)
-    stderr_file = '{}_stderr.log'.format(test_name)
+    stdout_file = '{}_stdout.log'.format(os.path.basename(os.path.normpath(test_name)))
+    stderr_file = '{}_stderr.log'.format(os.path.basename(os.path.normpath(test_name)))
 
     stdout_filepath = os.path.join(logs_dir, stdout_file)
     stderr_filepath = os.path.join(logs_dir, stderr_file)

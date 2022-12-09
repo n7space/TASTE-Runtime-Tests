@@ -3,31 +3,6 @@
 
 ##
 # Date: 2022.12.09
-# Result: DemoSat2 is LIDAR instrument with:
-# \* COTS laser rangefinder communicating via UART
-# \* Stepper motor driven via PIO
-# \* Limit sensors read via PIO
-# \* Auxiliary light sensor read via ADC
-# \* Auxiliary LED "enginemocks"/"data indicators" driven via PIO
-# \* Auxiliary “deployment”servos driven via PIO + PWM.
-#
-# \SRS ETB-OPER-10
-def test_ProvideDemonstrationApplication():
-  pass
-
-##
-# Date: 2022.12.09
-# Result: Mission scenario exercises all high-level SEDS functions:
-# \* LIDAR (sensor, but with integrated actuator)
-# \* Light Sensor (sensor)
-# \* LED mocks (actuator)
-#
-# ETB-OPER-20
-def test_ExerciseAllHighLevelSedsFunctions():
-  pass
-
-##
-# Date: 2022.12.09
 # Result: Mission scenario exercises additional TASTE Functions (ModeManager and Housekeeping) and communication
 # (1 TC interface and 2 TM interfaces).
 #

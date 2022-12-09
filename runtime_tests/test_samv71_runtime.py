@@ -181,6 +181,13 @@ def test_TasteSamv71RuntimeUsesDma():
     pass
 
 ##
+# As the potential benefits of using the streaming mode were deemed negligible in case of software using static memory
+# allocation, given the project budget contraints, it was decided to proceed with the baseline ASN1SCC transcoding.
+# \SRS  ETB-DES-16
+def test_EvaluateAsn1sccStreamingMode():
+    pass
+
+##
 # HWAS, as described in chapter 5.1.4.1 of ETB-N7S-ADD-001, declares the following interfaces:
 # \* InterruptSubscriptionManagementInterfaceType
 # \* InterruptSubscriptionInterfaceType

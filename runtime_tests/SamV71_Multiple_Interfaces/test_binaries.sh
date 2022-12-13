@@ -1,7 +1,5 @@
 #!/bin/bash
 
-echo "Test start!"
-
 cd "$( dirname "${BASH_SOURCE[0]}" )" || exit
 
 pushd work/binaries > /dev/null || exit
@@ -12,9 +10,6 @@ while [ ! -L "remote_serial0" ]
 do
     sleep 1
 done
-
-echo "PTYs created, let's rock"
-echo ""
 
 ./partition_3 & pid2=$!
 cat vConsole & pid3=$!

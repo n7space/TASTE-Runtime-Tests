@@ -56,7 +56,7 @@ def test_samv71_variable_length_message(taste_project):
     stderr = build.stderr.decode('utf-8')
     assert build.returncode == 0, 'Compilation errors: \n{}'.format(stderr)
 
-    timeout = 26
+    timeout = 30
     expected = [
         ['[TASTE] Initialization completed for function Actuator',
          '[TASTE] Initialization completed for function Controller'],
@@ -89,7 +89,7 @@ def test_samv71_hwas(taste_project):
     stderr = build.stderr.decode('utf-8')
     assert build.returncode == 0, 'Compilation errors: \n{}'.format(stderr)
 
-    timeout = 10
+    timeout = 30
     expected = [
         '[TASTE] Initialization completed for function Ground',
         'TEST STARTED',

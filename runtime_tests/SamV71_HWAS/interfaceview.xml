@@ -1,27 +1,27 @@
 <InterfaceView asn1file="Generic_Linux_Multiple_Interfaces.asn">
 <Function name="Controller" is_type="NO" language="C" default_implementation="default">
     <Property name="Taste::coordinates" value="37000 23300 58700 83000"/>
-<Provided_Interface name="ping" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+<Provided_Interface name="ping" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Property name="Taste::coordinates" value="37000 27800"/>
 </Provided_Interface>
 
-<Provided_Interface name="test" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+<Provided_Interface name="test" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Property name="Taste::coordinates" value="37000 41600"/>
 </Provided_Interface>
 
-<Provided_Interface name="InterruptSubscription_Interrupt_Ri" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+<Provided_Interface name="InterruptSubscription_Interrupt_Ri" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Input_Parameter name="InputParam" type="Interrupt-Type" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="58700 66800"/>
 </Provided_Interface>
 
-<Required_Interface name="result" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+<Required_Interface name="result" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Input_Parameter name="result_value" type="CustomInteger" encoding="ACN"/>
     <Property name="Taste::coordinates" value="37000 49500"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="false"/>
 </Required_Interface>
 
-<Required_Interface name="pong" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+<Required_Interface name="pong" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Property name="Taste::coordinates" value="37000 35100"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="false"/>
@@ -164,7 +164,7 @@
     <Property name="Taste::coordinates" value="135500 69900"/>
 </Provided_Interface>
 
-<Required_Interface name="InterruptSubscription_Interrupt_Ri" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+<Required_Interface name="InterruptSubscription_Interrupt_Ri" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Input_Parameter name="InputParam" type="Interrupt-Type" encoding="NATIVE"/>
     <Property name="Taste::coordinates" value="135500 67000"/>
     <Property name="Taste::InheritPI" value="true"/>
@@ -178,26 +178,26 @@
 
 <Function name="Ground" is_type="NO" language="SDL" default_implementation="default">
     <Property name="Taste::coordinates" value="4700 23200 26000 72600"/>
-<Provided_Interface name="result" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+<Provided_Interface name="result" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Input_Parameter name="result_value" type="CustomInteger" encoding="ACN"/>
     <Property name="Taste::coordinates" value="26000 49500"/>
 </Provided_Interface>
 
-<Provided_Interface name="trigger" kind="Cyclic" stack_size="50" period="1000" dispatch_offset="1000" priority="1" wcet="0">
+<Provided_Interface name="trigger" kind="Cyclic" stack_size="8192" period="1000" dispatch_offset="1000" priority="1" wcet="0">
     <Property name="Taste::coordinates" value="17200 23200"/>
 </Provided_Interface>
 
-<Provided_Interface name="pong" kind="Sporadic" queue_size="1" stack_size="50" priority="1" wcet="0" miat="0">
+<Provided_Interface name="pong" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Property name="Taste::coordinates" value="26000 35200"/>
 </Provided_Interface>
 
-<Required_Interface name="ping" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+<Required_Interface name="ping" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Property name="Taste::coordinates" value="26000 27800"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="false"/>
 </Required_Interface>
 
-<Required_Interface name="test" kind="Sporadic" queue_size="1" stack_size="10" priority="1" wcet="0" miat="0">
+<Required_Interface name="test" kind="Sporadic" queue_size="1" stack_size="8192" priority="1" wcet="0" miat="0">
     <Property name="Taste::coordinates" value="26000 41600"/>
     <Property name="Taste::InheritPI" value="true"/>
     <Property name="Taste::Autonamed" value="false"/>

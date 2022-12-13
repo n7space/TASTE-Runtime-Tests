@@ -1,0 +1,14 @@
+1. Start Instrument software
+2. Observe TM report
+3. Observe HK reports
+4. Observe changes in HK reports when surrounding luminosity is changed
+5. Transition instrument to PASSIVE mode using TC request
+6. Observe TM report
+7. Enabled DEBUG HK reports using TC request
+8. Observe TM report
+9. Observe LIDAR readings through DEBUG HK
+10. Disable DEBUG HK reports using TC request
+11. Observe TM report
+12. Transition to ACTIVE mode using TC request
+13. Observe TM report
+14. Change obstacle position and observe position readings via HK reports, as well as LED output

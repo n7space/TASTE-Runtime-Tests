@@ -2,6 +2,44 @@
 # -*- coding: utf-8 -*-
 
 ##
+# Date: 2022.12.13
+# Result: Mission scenario for the demonstration was established and it can be found in the TASTE-Runtime-Tests
+# repository (https://github.com/n7space/TASTE-Runtime-Tests) in the file ‘demosat2_mission_scenario.txt’
+#
+# \SRS ETB-OPER-10
+def test_MissionScenarioWasEstablished():
+  pass
+
+##
+# Date: 2022.12.13
+# Result: All of the SEDS based sensors and actuators: 
+# \* AFEC Hwas 
+# \* SunSensor 
+# \* PIO HWAS 
+# \* UART HWAS 
+# \* TfLuna 
+# \* MP6500 
+# \* LIDAR 
+# \* Propulsion 
+# were exercised in the mission scenario. 
+#
+# \SRS ETB-OPER-20
+def test_MissionScenarioExercisesAllSedsBasedSensorsAndActuators():
+  pass
+
+##
+# Date: 2022.12.13 Result: All of the inter-node interfaces: 
+# \* tc 
+# \* tm 
+# \* hk 
+# \* debug_hk 
+# were exercised in the mission scenario. 
+#
+# \SRS ETB-OPER-30
+def test_MissionScenarioExercisesAllInterNodeInterfaces():
+  pass
+
+##
 # As per chapter 5.1 of ETB-N7S-ADD-001, DemoSat2 is based on the TASTE SAMV71 runtime and as such it too targets
 # ATSAMV71Q21 MCU
 #

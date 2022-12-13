@@ -134,3 +134,12 @@ def test_DemoLinuxNodeCommunicatesUsingAtLeastThreeInterfaces():
 def test_DemoSensorsAndActuatorsAccessesHardwareUsingHwas():
   pass
 
+##
+# Date: 2022.12.13
+# Result: All of the project documentation was uploaded to ESA repository and can be found at
+# https://gitrepos.estec.esa.int/taste/etb
+#
+# \SRS ETB-CFG-60
+def test_AllProjectDocumentationWasUploadedToEsaRepository():
+  pass
+

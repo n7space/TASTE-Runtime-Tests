@@ -1,0 +1,58 @@
+<InterfaceView asn1file="PingPongLeon3.asn">
+<Function name="Controller" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="8700 9200 28700 17200"/>
+<Provided_Interface name="tick" kind="Cyclic" layer="default" required_system_element="NO" wcet="0" stack_size="1024" period="1000" dispatch_offset="0" priority="1">
+    <Property name="Taste::coordinates" value="15100 17000"/>
+</Provided_Interface>
+
+<Provided_Interface name="pong" kind="Sporadic" layer="default" required_system_element="NO" queue_size="1" wcet="0" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="pong" type="MyInteger" encoding="UPER"/>
+    <Property name="Taste::coordinates" value="28700 11800"/>
+</Provided_Interface>
+
+<Required_Interface name="ping" kind="Sporadic" layer="default" required_system_element="NO" queue_size="1" wcet="0" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="ping" type="MyInteger" encoding="UPER"/>
+    <Property name="Taste::coordinates" value="28700 15100"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Function name="Actuator" is_type="NO" language="C" default_implementation="default" fixed_system_element="NO" required_system_element="NO" startup_priority="1" FPGA_Configurations="">
+    <Property name="Taste::coordinates" value="39300 8800 59300 16800"/>
+<Provided_Interface name="ping" kind="Sporadic" layer="default" required_system_element="NO" queue_size="1" wcet="0" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="ping" type="MyInteger" encoding="UPER"/>
+    <Property name="Taste::coordinates" value="39300 14400"/>
+</Provided_Interface>
+
+<Required_Interface name="pong" kind="Sporadic" layer="default" required_system_element="NO" queue_size="1" wcet="0" stack_size="1024" miat="0" priority="1">
+    <Input_Parameter name="pong" type="MyInteger" encoding="UPER"/>
+    <Property name="Taste::coordinates" value="39300 11500"/>
+    <Property name="Taste::InheritPI" value="true"/>
+    <Property name="Taste::Autonamed" value="true"/>
+</Required_Interface>
+
+    <Implementations>
+        <Implementation name="default" language="C"/>
+    </Implementations>
+</Function>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Controller" ri_name="ping"/>
+    <Target func_name="Actuator" pi_name="ping"/>
+    <Property name="Taste::coordinates" value="29300 15100 34100 15100 37400 14400 39000 14400"/>
+</Connection>
+
+<Connection  required_system_element="NO">
+    <Source func_name="Actuator" ri_name="pong"/>
+    <Target func_name="Controller" pi_name="pong"/>
+    <Property name="Taste::coordinates" value="38700 11500 33900 11500 30600 11800 29000 11800"/>
+</Connection>
+
+<Layer name="default"/>
+
+</InterfaceView>
